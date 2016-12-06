@@ -1,0 +1,42 @@
+vnfd:vnfd-catalog:
+    vnfd:vnfd:
+    -   vnfd:connection-point:
+        -   vnfd:name: subscriber-cp
+            vnfd:type: VPORT
+        -   vnfd:name: internet-cp
+            vnfd:type: VPORT
+        -   vnfd:name: service-cp
+            vnfd:type: VPORT
+        vnfd:description: Sandvine Traffic Steering Engine
+        vnfd:id: id_tse_vnf
+        vnfd:logo: sandvine_logo.png
+        vnfd:mgmt-interface:
+          vnfd:vdu-id: iovdu_0
+        vnfd:name: traffic steering engine
+        vnfd:service-function-chain: UNAWARE
+        vnfd:short-name: tse
+        vnfd:vdu:
+        -   vnfd:external-interface:
+            -   vnfd:name: subscriber-cp
+                vnfd:virtual-interface:
+                    vnfd:type: VIRTIO
+                vnfd:vnfd-connection-point-ref: subscriber-cp 
+            -   vnfd:name: internet-cp
+                vnfd:virtual-interface:
+                    vnfd:type: VIRTIO
+                vnfd:vnfd-connection-point-ref: internet-cp
+            -   vnfd:name: service-cp
+                vnfd:virtual-interface:
+                    vnfd:type: VIRTIO
+                vnfd:vnfd-connection-point-ref: service-cp
+            vnfd:id: iovdu_0
+            vnfd:guest-epa:
+                vnfd:cpu-pinning-policy: ANY
+            vnfd:image: "TSE_1.00.00-0075_x86_64_el7.pts_tse_dev_integration"
+            vnfd:name: vdu-1
+            vnfd:cloud-init-file: cloud_init.cfg
+            vnfd:vm-flavor:
+                vnfd:memory-mb: '5192'
+                vnfd:storage-gb: '10'
+                vnfd:vcpu-count: '4'
+        vnfd:version: '1.0'
