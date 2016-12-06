@@ -4,7 +4,7 @@ VNFD_OUTPUT:= $(addprefix build/,$(addsuffix .tar.gz, $(VNFD_DIRS)))
 VNFD_CHECKSUMS:= $(addsuffix /checksums.txt, $(VNFD_DIRS))
 VNFD_YAML:= $(addsuffix .yaml, $(VNFD_DIRS))
 VNFD_YAML_CLEAN:= $(addsuffix .clean, $(VNFD_YAML))
-VNFD_CLOUD_INIT:= $(addsuffix /cloud_init/cloud_init.cfg,$(VNFD_DIRS))
+VNFD_CLOUD_INIT:= $(addsuffix /template/cloud_init.cfg,$(VNFD_DIRS))
 
 SSH_KEY ?= ""
 
