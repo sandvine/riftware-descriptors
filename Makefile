@@ -6,11 +6,9 @@ VNFD_YAML:= $(addsuffix .yaml, $(VNFD_DIRS))
 VNFD_YAML_CLEAN:= $(addsuffix .clean, $(VNFD_YAML))
 VNFD_CLOUD_INIT:= $(addsuffix /cloud_init/cloud_init.cfg,$(VNFD_DIRS))
 
-SSH_KEY ?= ""
-
 server_vnfd_IMAGE ?= "Ubuntu 16.04.1 LTS - Xenial Xerus - 64-bit - Cloud Based Image"
 tse_vnfd_IMAGE    ?= "TSE_1.00.00-0075_x86_64_el7.pts_tse_dev_integration"
-pts_vnfd_IMAGE    ?= "PTS_7.40.00_1-0186_x86_64_el7"
+pts_vnfd_IMAGE    ?= "PTS_7.40.00-0309_x86_64_el7.pts_tse_dev_integration"
 
 all:  $(VNFD_CLOUD_INIT) build_dir
 	$(MAKE) $(VNFD_OUTPUT)
@@ -29,9 +27,6 @@ $(VNFD_CLOUD_INIT): VNFD_DIR=$(shell dirname $(shell dirname $@))
 $(VNFD_CLOUD_INIT):
 	@mkdir -p $(VNFD_DIR)/cloud_init
 	@cat $(VNFD_DIR)/template/cloud_init.cfg > $@
-	@echo "" >> $@
-	@echo "ssh_authorized_keys:" >> $@
-	@echo "  - $(SSH_KEY)" >> $@
 
 %.yaml.clean:
 	@rm -f $*/$*.yaml
