@@ -1,4 +1,4 @@
-VNFD_DIRS:= server_vnfd tse_vnfd
+VNFD_DIRS:= server_vnfd tse_vnfd pts_vnfd
 
 VNFD_OUTPUT:= $(addprefix build/,$(addsuffix .tar.gz, $(VNFD_DIRS)))
 VNFD_CHECKSUMS:= $(addsuffix /checksums.txt, $(VNFD_DIRS))
@@ -10,6 +10,7 @@ SSH_KEY ?= ""
 
 server_vnfd_IMAGE ?= "Ubuntu 16.04.1 LTS - Xenial Xerus - 64-bit - Cloud Based Image"
 tse_vnfd_IMAGE    ?= "TSE_1.00.00-0075_x86_64_el7.pts_tse_dev_integration"
+pts_vnfd_IMAGE    ?= "PTS_7.40.00_1-0186_x86_64_el7"
 
 all:  $(VNFD_CLOUD_INIT) build_dir
 	$(MAKE) $(VNFD_OUTPUT)
@@ -26,7 +27,8 @@ all:  $(VNFD_CLOUD_INIT) build_dir
 $(VNFD_CLOUD_INIT): VNFD_DIR=$(shell dirname $(shell dirname $@))
 
 $(VNFD_CLOUD_INIT):
-	@cat $(VNFD_DIR)/template/cloud_init.cfg > $@	
+	@mkdir -p $(VNFD_DIR)/cloud_init
+	@cat $(VNFD_DIR)/template/cloud_init.cfg > $@
 	@echo "" >> $@
 	@echo "ssh_authorized_keys:" >> $@
 	@echo "  - $(SSH_KEY)" >> $@
