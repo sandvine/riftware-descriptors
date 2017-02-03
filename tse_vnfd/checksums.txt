@@ -1,0 +1,3 @@
+ee6a92e0aed49fbbe7a2d9c2ec07f8af  ./icons/sandvine_logo.png
+c90db8f38a6995e1feb704ce88fd2f79  ./tse_vnfd.yaml
+d3b4d8f5b6375e803828a46ae1fcca9d  ./checksums.txt

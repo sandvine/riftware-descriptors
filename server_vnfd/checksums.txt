@@ -1,0 +1,2 @@
+643e3f576810fdb5a924dfad436ba9d1  ./server_vnfd.yaml
+c95e91a81f288dcd96e0232ff7db4022  ./checksums.txt

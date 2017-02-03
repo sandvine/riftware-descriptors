@@ -4,7 +4,7 @@ VNFD_OUTPUT:= $(addprefix build/,$(addsuffix .tar.gz, $(VNFD_DIRS)))
 VNFD_CHECKSUMS:= $(addsuffix /checksums.txt, $(VNFD_DIRS))
 VNFD_YAML:= $(addsuffix .yaml, $(VNFD_DIRS))
 VNFD_YAML_CLEAN:= $(addsuffix .clean, $(VNFD_YAML))
-VNFD_CLOUD_INIT:= $(addsuffix /cloud_init/cloud_init.cfg,$(VNFD_DIRS))
+VNFD_CLOUD_INIT:= $(addsuffix /template/cloud_init.cfg,$(VNFD_DIRS))
 
 server_vnfd_IMAGE ?= "Ubuntu 16.04.1 LTS - Xenial Xerus - 64-bit - Cloud Based Image"
 tse_vnfd_IMAGE    ?= "TSE_1.00.00-0075_x86_64_el7.pts_tse_dev_integration"
